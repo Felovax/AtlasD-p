@@ -1,12 +1,12 @@
-# Bygger og publiserer invitasjonen til GitHub Pages hver gang main oppdateres.
-# Kan også startes manuelt: Actions → «Publiser invitasjonen» → Run workflow.
+﻿# Bygger og publiserer invitasjonen til GitHub Pages hver gang main oppdateres.
+# Kan ogsÃ¥ startes manuelt: Actions â†’ Â«Publiser invitasjonenÂ» â†’ Run workflow.
 #
-# Før første kjøring (se README → «Publisering»):
-#   1. Settings → Pages → Source: «GitHub Actions»
-#   2. Settings → Secrets and variables → Actions → Variables (eller Secrets – begge virker):
+# FÃ¸r fÃ¸rste kjÃ¸ring (se README â†’ Â«PubliseringÂ»):
+#   1. Settings â†’ Pages â†’ Source: Â«GitHub ActionsÂ»
+#   2. Settings â†’ Secrets and variables â†’ Actions â†’ Variables (eller Secrets â€“ begge virker):
 #        VITE_SUPABASE_URL              (f.eks. https://abcd1234.supabase.co)
-#        VITE_SUPABASE_PUBLISHABLE_KEY  (publishable key eller den eldre anon-nøkkelen)
-#      Disse er offentlige verdier (de havner i nettleseren uansett) – IKKE legg inn service_role/secret key.
+#        VITE_SUPABASE_PUBLISHABLE_KEY  (publishable key eller den eldre anon-nÃ¸kkelen)
+#      Disse er offentlige verdier (de havner i nettleseren uansett) â€“ IKKE legg inn service_role/secret key.
 name: Publiser invitasjonen
 
 on:
@@ -48,11 +48,11 @@ jobs:
 
       - name: Sjekk Supabase-oppsett
         env:
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY || secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: |
           if [ -z "$VITE_SUPABASE_URL" ] || [ -z "$VITE_SUPABASE_PUBLISHABLE_KEY" ]; then
-            echo "::warning::VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY er ikke satt. Siden publiseres, men svarskjemaet vil vise «ikke klar ennå»."
+            echo "::warning::VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY er ikke satt. Siden publiseres, men svarskjemaet vil vise Â«ikke klar ennÃ¥Â»."
           fi
 
       - name: Bygg
@@ -60,7 +60,7 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
           VITE_SITE_URL: ${{ steps.pages.outputs.base_url }}/
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY || secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
       - uses: actions/upload-pages-artifact@v3
@@ -76,3 +76,4 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
