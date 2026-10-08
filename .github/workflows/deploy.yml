@@ -3,7 +3,7 @@
 #
 # Før første kjøring (se README → «Publisering»):
 #   1. Settings → Pages → Source: «GitHub Actions»
-#   2. Settings → Secrets and variables → Actions → Variables:
+#   2. Settings → Secrets and variables → Actions → Variables (eller Secrets – begge virker):
 #        VITE_SUPABASE_URL              (f.eks. https://abcd1234.supabase.co)
 #        VITE_SUPABASE_PUBLISHABLE_KEY  (publishable key eller den eldre anon-nøkkelen)
 #      Disse er offentlige verdier (de havner i nettleseren uansett) – IKKE legg inn service_role/secret key.
@@ -47,8 +47,11 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Sjekk Supabase-oppsett
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY || secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: |
-          if [ -z "${{ vars.VITE_SUPABASE_URL }}" ] || [ -z "${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}" ]; then
+          if [ -z "$VITE_SUPABASE_URL" ] || [ -z "$VITE_SUPABASE_PUBLISHABLE_KEY" ]; then
             echo "::warning::VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY er ikke satt. Siden publiseres, men svarskjemaet vil vise «ikke klar ennå»."
           fi
 
@@ -57,8 +60,8 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
           VITE_SITE_URL: ${{ steps.pages.outputs.base_url }}/
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY || secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
