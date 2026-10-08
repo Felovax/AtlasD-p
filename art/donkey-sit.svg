@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 360" width="340" height="360">
+  <!-- Original illustrasjon: et litt ettertenksomt, men fornøyd esel som sitter ved en tistel. -->
+  <defs>
+    <!--FILTERS-->
+    <path id="haunch-l" d="M110 256 C 140 256 162 276 162 298 C 162 322 140 338 110 338 C 80 338 58 322 58 298 C 58 276 80 256 110 256 Z"/>
+    <path id="haunch-r" d="M230 256 C 260 256 282 276 282 298 C 282 322 260 338 230 338 C 200 338 178 322 178 298 C 178 276 200 256 230 256 Z"/>
+    <path id="body" d="M170 160 C 120 160 98 220 100 280 C 102 318 130 336 170 336 C 210 336 238 318 240 280 C 242 220 220 160 170 160 Z"/>
+    <path id="leg-l" d="M144 276 C 144 270 168 270 168 276 L168 330 C 168 339 144 339 144 330 Z"/>
+    <path id="leg-r" d="M174 276 C 174 270 198 270 198 276 L198 330 C 198 339 174 339 174 330 Z"/>
+    <path id="ear-l" d="M140 82 C 118 70 86 74 66 92 C 62 98 68 104 76 102 C 98 98 120 96 142 98 Z"/>
+    <path id="ear-r" d="M200 82 C 222 70 254 74 274 92 C 278 98 272 104 264 102 C 242 98 220 96 198 98 Z"/>
+    <path id="head" d="M170 66 C 200 66 214 88 214 112 C 214 134 200 148 170 148 C 140 148 126 134 126 112 C 126 88 140 66 170 66 Z"/>
+    <path id="muzzle" d="M166 120 C 196 120 206 138 204 154 C 202 172 186 182 166 182 C 146 182 130 172 130 154 C 130 136 140 120 166 120 Z"/>
+    <path id="mane" d="M150 72 C 154 58 164 62 166 52 C 172 62 180 56 186 64 C 192 72 182 78 170 76 C 160 78 148 80 150 72 Z"/>
+  </defs>
+
+  <ellipse cx="172" cy="338" rx="140" ry="14" fill="#7a6440" opacity="0.2" filter="url(#wash-soft)"/>
+
+  <!-- tistel -->
+  <g filter="url(#ink)" fill="none" stroke="#5f7a48" stroke-width="3" stroke-linecap="round">
+    <path d="M298 338 C 296 310 294 280 292 252"/>
+    <path d="M296 300 C 306 292 314 294 320 288 M294 280 C 284 272 278 274 272 268"/>
+    <path d="M318 338 C 318 322 316 310 314 298"/>
+  </g>
+  <path d="M296 300 C 304 290 314 294 320 288 C 314 300 304 302 296 300 Z M294 280 C 286 270 278 274 272 268 C 280 280 288 282 294 280 Z" fill="#7e9b5f" filter="url(#wash)"/>
+  <ellipse cx="292" cy="248" rx="11" ry="9" fill="#7e9b5f" filter="url(#wash)"/>
+  <path d="M282 244 C 284 228 290 222 292 214 C 296 222 302 228 302 244 Z" fill="#a173b8" filter="url(#wash)"/>
+  <ellipse cx="314" cy="296" rx="7" ry="6" fill="#7e9b5f" filter="url(#wash)"/>
+  <path d="M308 294 C 309 284 313 280 314 274 C 317 280 320 284 320 294 Z" fill="#b48ac6" filter="url(#wash)"/>
+
+  <!-- hale -->
+  <path d="M236 312 C 262 312 274 300 282 286" fill="none" stroke="#4a3426" stroke-width="3" stroke-linecap="round" filter="url(#ink)"/>
+  <path d="M276 292 C 280 280 290 276 294 270 C 296 280 290 292 280 296 Z" fill="#5d5560" filter="url(#wash)"/>
+
+  <!-- bakbein -->
+  <use href="#haunch-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#haunch-l" fill="#a3a6b4" filter="url(#wash)"/>
+  <use href="#haunch-l" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#haunch-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#haunch-r" fill="#a3a6b4" filter="url(#wash)"/>
+  <use href="#haunch-r" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <ellipse cx="76" cy="334" rx="24" ry="10" fill="#5d5560" filter="url(#wash)"/>
+  <ellipse cx="264" cy="334" rx="24" ry="10" fill="#5d5560" filter="url(#wash)"/>
+
+  <!-- kropp -->
+  <use href="#body" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#body" fill="#a9acba" filter="url(#wash)"/>
+  <ellipse cx="170" cy="236" rx="36" ry="44" fill="#cdc9d0" opacity="0.85" filter="url(#wash-soft)"/>
+  <use href="#body" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+
+  <!-- forbein -->
+  <use href="#leg-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#leg-l" fill="#a3a6b4" filter="url(#wash)"/>
+  <path d="M144 320 L168 320 L168 330 C 168 339 144 339 144 330 Z" fill="#5d5560" filter="url(#wash)"/>
+  <use href="#leg-l" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#leg-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#leg-r" fill="#a3a6b4" filter="url(#wash)"/>
+  <path d="M174 320 L198 320 L198 330 C 198 339 174 339 174 330 Z" fill="#5d5560" filter="url(#wash)"/>
+  <use href="#leg-r" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+
+  <!-- ører -->
+  <use href="#ear-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#ear-l" fill="#a3a6b4" filter="url(#wash)"/>
+  <path d="M132 88 C 114 82 94 84 80 94 C 100 92 118 92 132 94 Z" fill="#cfb3bb" filter="url(#wash)"/>
+  <use href="#ear-l" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#ear-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#ear-r" fill="#a3a6b4" filter="url(#wash)"/>
+  <path d="M208 88 C 226 82 246 84 260 94 C 240 92 222 92 208 94 Z" fill="#cfb3bb" filter="url(#wash)"/>
+  <use href="#ear-r" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+
+  <!-- hode -->
+  <use href="#head" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#head" fill="#a9acba" filter="url(#wash)"/>
+  <use href="#head" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#mane" fill="#5d5560" filter="url(#wash)"/>
+  <use href="#muzzle" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#muzzle" fill="#d9d0c6" filter="url(#wash)"/>
+  <use href="#muzzle" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <g filter="url(#ink)">
+    <ellipse cx="152" cy="108" rx="5.5" ry="5.5" fill="#3a281c"/>
+    <ellipse cx="188" cy="108" rx="5.5" ry="5.5" fill="#3a281c"/>
+    <path d="M145 108 C 147 101 157 101 159 108 Z M181 108 C 183 101 193 101 195 108 Z" fill="#9c9fad"/>
+    <path d="M144 108 C 148 104 156 104 160 108 M180 108 C 184 104 192 104 196 108" fill="none" stroke="#4a3426" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="154" cy="150" rx="3.6" ry="5.2" fill="#4a3d44"/>
+    <ellipse cx="178" cy="150" rx="3.6" ry="5.2" fill="#4a3d44"/>
+    <path d="M152 167 C 160 172 170 172 178 166" fill="none" stroke="#4a3426" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <circle cx="138" cy="134" r="9" fill="#e59aa0" opacity="0.35" filter="url(#wash-soft)"/>
+  <circle cx="202" cy="134" r="9" fill="#e59aa0" opacity="0.35" filter="url(#wash-soft)"/>
+</svg>

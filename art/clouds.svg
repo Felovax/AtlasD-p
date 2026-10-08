@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 420" width="1400" height="420">
+  <!-- Myke akvarellskyer. Generert av scripts/generate-scenes.mjs -->
+  <defs>
+    <!--FILTERS-->
+  </defs>
+  <ellipse cx="230" cy="188.5" rx="119" ry="26.6" fill="#cddde0" opacity="0.8" filter="url(#wash-soft)"/>
+  <g fill="#ffffff" opacity="0.92" filter="url(#wash-soft)"><circle cx="228" cy="174.7" r="41.5"/><circle cx="230" cy="150" r="47.7"/><circle cx="234" cy="150.2" r="38.3"/><circle cx="223.3" cy="140.1" r="30.8"/><circle cx="215.2" cy="169" r="35.1"/><circle cx="236.7" cy="163" r="46.6"/><circle cx="219.5" cy="150.4" r="41.9"/><circle cx="160.8" cy="159.8" r="32.7"/><circle cx="173.8" cy="166" r="24.7"/><circle cx="165.5" cy="166.9" r="27.7"/><circle cx="156" cy="160.2" r="25.2"/><circle cx="301" cy="181.9" r="28.7"/><circle cx="304.6" cy="163.5" r="35.8"/><circle cx="282.6" cy="167.2" r="33.8"/><circle cx="300.4" cy="159.6" r="32"/></g>
+  <ellipse cx="760" cy="149.5" rx="153" ry="34.2" fill="#cddde0" opacity="0.8" filter="url(#wash-soft)"/>
+  <g fill="#ffffff" opacity="0.92" filter="url(#wash-soft)"><circle cx="762.6" cy="82.1" r="42.4"/><circle cx="791.7" cy="103.3" r="66.3"/><circle cx="745.9" cy="96.8" r="58.6"/><circle cx="770.7" cy="82.1" r="57.9"/><circle cx="759" cy="129.4" r="55.5"/><circle cx="760.8" cy="94.1" r="59.1"/><circle cx="771.7" cy="105.6" r="56"/><circle cx="661.8" cy="124.6" r="43.6"/><circle cx="694.6" cy="126.8" r="27.2"/><circle cx="652.3" cy="111.8" r="40.9"/><circle cx="704.5" cy="119.8" r="43.2"/><circle cx="858.6" cy="131.6" r="45.5"/><circle cx="854.8" cy="114.5" r="30"/><circle cx="828.3" cy="127.1" r="39"/><circle cx="860" cy="107.4" r="37.9"/></g>
+  <ellipse cx="1190" cy="225.2" rx="108.8" ry="24.3" fill="#cddde0" opacity="0.8" filter="url(#wash-soft)"/>
+  <g fill="#ffffff" opacity="0.92" filter="url(#wash-soft)"><circle cx="1191.3" cy="190.6" r="44.4"/><circle cx="1173.6" cy="205.5" r="45.7"/><circle cx="1189" cy="167.5" r="45.2"/><circle cx="1189.4" cy="190.9" r="44.1"/><circle cx="1166.6" cy="176.1" r="31"/><circle cx="1202.6" cy="189.5" r="27.4"/><circle cx="1179.1" cy="188" r="36.4"/><circle cx="1124.1" cy="210.7" r="25.7"/><circle cx="1125" cy="205.1" r="27"/><circle cx="1105.3" cy="208" r="28.5"/><circle cx="1121.8" cy="205.2" r="20"/><circle cx="1265.5" cy="205.6" r="28.5"/><circle cx="1243.2" cy="189.9" r="30.6"/><circle cx="1251.8" cy="222.5" r="25.2"/><circle cx="1272.3" cy="199.9" r="34.8"/></g>
+
+</svg>

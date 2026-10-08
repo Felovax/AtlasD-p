@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" width="300" height="420">
+  <!-- Original illustrasjon: en sprettende tigerunge som står på halen. -->
+  <defs>
+    <!--FILTERS-->
+    <path id="tail" d="M150 326 C 198 332 198 354 150 357 C 102 360 102 380 150 383 C 198 386 198 404 152 408"/>
+    <path id="body" d="M150 172 C 186 172 206 206 206 250 C 206 296 184 330 150 330 C 116 330 94 296 94 250 C 94 206 114 172 150 172 Z"/>
+    <path id="leg-l" d="M122 304 C 140 304 150 316 148 330 C 146 342 132 346 116 344 C 102 342 96 334 98 324 C 100 312 108 304 122 304 Z"/>
+    <path id="leg-r" d="M178 304 C 192 304 200 312 202 324 C 204 334 198 342 184 344 C 168 346 154 342 152 330 C 150 316 160 304 178 304 Z"/>
+    <path id="arm-l" d="M116 202 C 96 188 74 162 58 132 C 52 119 61 106 74 109 C 84 112 92 128 104 148 C 112 162 126 176 131 186 C 134 197 124 208 116 202 Z"/>
+    <path id="arm-r" d="M184 202 C 204 188 226 162 242 132 C 248 119 239 106 226 109 C 216 112 208 128 196 148 C 188 162 174 176 169 186 C 166 197 176 208 184 202 Z"/>
+    <path id="head" d="M150 86 C 186 86 206 108 206 136 C 206 166 182 184 150 184 C 118 184 94 166 94 136 C 94 108 114 86 150 86 Z"/>
+    <path id="muzzle" d="M116 152 C 116 138 133 132 150 140 C 167 132 184 138 184 152 C 184 171 168 182 150 182 C 132 182 116 171 116 152 Z"/>
+  </defs>
+
+  <ellipse cx="150" cy="412" rx="70" ry="8" fill="#7a6440" opacity="0.2" filter="url(#wash-soft)"/>
+
+  <!-- fjærende hale -->
+  <g filter="url(#ink)">
+    <use href="#tail" fill="none" stroke="#4a3426" stroke-width="17" stroke-linecap="round"/>
+    <use href="#tail" fill="none" stroke="#fbf6ea" stroke-width="12.5" stroke-linecap="round"/>
+  </g>
+  <use href="#tail" fill="none" stroke="#e9963f" stroke-width="12.5" stroke-linecap="round" filter="url(#wash)"/>
+  <use href="#tail" fill="none" stroke="#5b3520" stroke-width="12" stroke-dasharray="5 16" filter="url(#ink)" opacity="0.85"/>
+
+  <!-- armer -->
+  <use href="#arm-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#arm-l" fill="#e9963f" filter="url(#wash)"/>
+  <use href="#arm-l" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#arm-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#arm-r" fill="#e9963f" filter="url(#wash)"/>
+  <use href="#arm-r" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <g filter="url(#ink)" fill="none" stroke="#5b3520" stroke-width="4.5" stroke-linecap="round">
+    <path d="M66 136 L80 127 M80 156 L93 147 M97 176 L109 167"/>
+    <path d="M234 136 L220 127 M220 156 L207 147 M203 176 L191 167"/>
+  </g>
+
+  <!-- kropp -->
+  <use href="#body" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#body" fill="#e9963f" filter="url(#wash)"/>
+  <path d="M150 196 C 172 196 182 222 182 258 C 182 292 170 316 150 316 C 130 316 118 292 118 258 C 118 222 128 196 150 196 Z" fill="#f7e3c1" filter="url(#wash)"/>
+  <use href="#body" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <g filter="url(#ink)" fill="none" stroke="#5b3520" stroke-width="5" stroke-linecap="round">
+    <path d="M96 222 C 106 224 112 230 116 238 M95 256 C 105 257 112 262 116 270 M100 290 C 108 290 113 295 116 302"/>
+    <path d="M204 222 C 194 224 188 230 184 238 M205 256 C 195 257 188 262 184 270 M200 290 C 192 290 187 295 184 302"/>
+  </g>
+
+  <!-- bein -->
+  <use href="#leg-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#leg-l" fill="#e9963f" filter="url(#wash)"/>
+  <use href="#leg-l" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#leg-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#leg-r" fill="#e9963f" filter="url(#wash)"/>
+  <use href="#leg-r" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+
+  <!-- hode -->
+  <circle cx="112" cy="98" r="15" fill="#fbf6ea" filter="url(#solid)"/>
+  <circle cx="112" cy="98" r="15" fill="#e48b38" filter="url(#wash)"/>
+  <circle cx="112" cy="100" r="7" fill="#5b3520" opacity="0.7" filter="url(#wash)"/>
+  <circle cx="112" cy="98" r="15" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <circle cx="188" cy="98" r="15" fill="#fbf6ea" filter="url(#solid)"/>
+  <circle cx="188" cy="98" r="15" fill="#e48b38" filter="url(#wash)"/>
+  <circle cx="188" cy="100" r="7" fill="#5b3520" opacity="0.7" filter="url(#wash)"/>
+  <circle cx="188" cy="98" r="15" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#head" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#head" fill="#ec9c44" filter="url(#wash)"/>
+  <use href="#muzzle" fill="#f8e6c6" filter="url(#wash)"/>
+  <use href="#head" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <g filter="url(#ink)">
+    <path d="M140 92 L142 106 M150 89 L150 104 M160 92 L158 106" fill="none" stroke="#5b3520" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M97 126 L111 130 M98 142 L111 142 M203 126 L189 130 M202 142 L189 142" fill="none" stroke="#5b3520" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="130" cy="124" rx="5" ry="6.4" fill="#3a281c"/>
+    <ellipse cx="170" cy="124" rx="5" ry="6.4" fill="#3a281c"/>
+    <circle cx="131.8" cy="121.6" r="1.8" fill="#fff"/>
+    <circle cx="171.8" cy="121.6" r="1.8" fill="#fff"/>
+    <path d="M120 110 C 125 105 134 105 138 108 M162 108 C 166 105 175 105 180 110" fill="none" stroke="#4a3426" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
+    <path d="M142 142 C 146 138 154 138 158 142 C 156 148 152 150 150 150 C 148 150 144 148 142 142 Z" fill="#8a4b3a"/>
+    <path d="M130 158 C 140 175 160 175 170 158 C 160 165 140 165 130 158 Z" fill="#9b4a3c" stroke="#4a3426" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M150 150 L150 160" stroke="#4a3426" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="134" cy="152" r="1.4" fill="#5b3520"/><circle cx="128" cy="148" r="1.4" fill="#5b3520"/>
+    <circle cx="166" cy="152" r="1.4" fill="#5b3520"/><circle cx="172" cy="148" r="1.4" fill="#5b3520"/>
+  </g>
+</svg>

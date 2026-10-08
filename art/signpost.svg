@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 380" width="260" height="380">
+  <!-- Original illustrasjon: veiviser i tre som peker til kirken og festen. -->
+  <defs>
+    <!--FILTERS-->
+    <path id="post" d="M118 56 C 124 52 136 52 142 56 L 146 360 C 140 366 122 366 116 360 Z"/>
+    <path id="board-1" d="M44 86 L188 80 L218 102 L190 124 L46 128 C 40 116 40 98 44 86 Z"/>
+    <path id="board-2" d="M216 150 L72 146 L42 168 L72 190 L214 192 C 220 180 220 162 216 150 Z"/>
+  </defs>
+
+  <ellipse cx="132" cy="362" rx="96" ry="12" fill="#7a6440" opacity="0.22" filter="url(#wash-soft)"/>
+
+  <use href="#post" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#post" fill="#8f6d4c" filter="url(#wash)"/>
+  <path d="M134 60 L 140 358 C 136 362 132 362 130 360 L 126 60 Z" fill="#5f4532" opacity="0.45" filter="url(#wash)"/>
+  <use href="#post" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <path d="M124 210 c 2 20 -2 40 1 60 M136 240 c -2 16 2 30 0 44" stroke="#4a3426" stroke-width="1.4" fill="none" opacity="0.5" filter="url(#ink)"/>
+
+  <use href="#board-1" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#board-1" fill="#c09766" filter="url(#wash)"/>
+  <use href="#board-1" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <path d="M56 96 C 100 94 150 92 186 90 M60 118 C 100 116 140 114 180 114" stroke="#8d6a45" stroke-width="1.2" fill="none" opacity="0.6" filter="url(#ink)"/>
+  <text x="124" y="111" text-anchor="middle" transform="rotate(-2 124 106)" font-family="Segoe Print, Comic Sans MS, cursive" font-size="17" font-weight="700" fill="#4a3426" letter-spacing="1">KIRKEN</text>
+
+  <use href="#board-2" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#board-2" fill="#b98d5c" filter="url(#wash)"/>
+  <use href="#board-2" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <path d="M84 158 C 120 158 170 160 206 160 M86 180 C 130 182 170 182 204 182" stroke="#8d6a45" stroke-width="1.2" fill="none" opacity="0.6" filter="url(#ink)"/>
+  <text x="138" y="175" text-anchor="middle" transform="rotate(1.5 138 170)" font-family="Segoe Print, Comic Sans MS, cursive" font-size="17" font-weight="700" fill="#4a3426" letter-spacing="1">FESTEN</text>
+
+  <g fill="#3a281c" filter="url(#ink)">
+    <circle cx="130" cy="104" r="2.2"/><circle cx="130" cy="170" r="2.2"/>
+  </g>
+
+  <!-- gress og blomster ved foten -->
+  <path d="M84 362 q 4 -14 0 -26 M94 362 q 6 -16 10 -28 M104 362 q -2 -12 -8 -20 M150 362 q 4 -18 2 -30 M160 362 q 6 -12 14 -20 M170 362 q 0 -14 -4 -24 M180 362 q 6 -10 10 -14" stroke="#5e7a48" stroke-width="2.2" stroke-linecap="round" fill="none" filter="url(#ink)"/>
+  <path d="M196 360 C 196 340 198 326 200 316" stroke="#6f8c52" stroke-width="2" fill="none" filter="url(#ink)"/>
+  <g fill="#fffdf6" filter="url(#wash)">
+    <ellipse cx="200" cy="306" rx="5" ry="2.4"/><ellipse cx="200" cy="318" rx="5" ry="2.4"/>
+    <ellipse cx="194" cy="312" rx="2.4" ry="5"/><ellipse cx="206" cy="312" rx="2.4" ry="5"/>
+    <ellipse cx="195.5" cy="307.5" rx="4.6" ry="2.2" transform="rotate(45 195.5 307.5)"/><ellipse cx="204.5" cy="316.5" rx="4.6" ry="2.2" transform="rotate(45 204.5 316.5)"/>
+    <ellipse cx="204.5" cy="307.5" rx="4.6" ry="2.2" transform="rotate(-45 204.5 307.5)"/><ellipse cx="195.5" cy="316.5" rx="4.6" ry="2.2" transform="rotate(-45 195.5 316.5)"/>
+  </g>
+  <circle cx="200" cy="312" r="3" fill="#e9b23a" filter="url(#wash)"/>
+  <path d="M70 360 C 70 346 68 336 66 328" stroke="#6f8c52" stroke-width="2" fill="none" filter="url(#ink)"/>
+  <g fill="#f0c43c" filter="url(#wash)"><circle cx="66" cy="324" r="5"/><circle cx="71" cy="321" r="4"/><circle cx="61" cy="321" r="4"/></g>
+</svg>

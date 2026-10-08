@@ -1,0 +1,104 @@
+/* ─── Bie ───────────────────────────────────────────────────────────────────── */
+.bee {
+  display: block;
+  overflow: visible;
+}
+
+.bee--flip {
+  transform: scaleX(-1);
+}
+
+.bee__wings {
+  transform-origin: 24px 22px;
+  transform-box: view-box;
+  animation: bee-wings 0.16s ease-in-out infinite alternate;
+}
+
+@keyframes bee-wings {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0.55);
+  }
+}
+
+.flying-bee {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.flying-bee__x,
+.flying-bee__y {
+  display: block;
+  will-change: transform;
+}
+
+.flying-bee__x {
+  animation: bee-x var(--bee-dur, 7s) ease-in-out var(--bee-delay, 0s) infinite alternate;
+}
+
+.flying-bee__y {
+  animation: bee-y calc(var(--bee-dur, 7s) / 2.3) ease-in-out var(--bee-delay, 0s) infinite alternate;
+}
+
+@keyframes bee-x {
+  from {
+    transform: translateX(calc(var(--bee-x) * -1)) rotate(-6deg);
+  }
+  to {
+    transform: translateX(var(--bee-x)) rotate(6deg);
+  }
+}
+
+@keyframes bee-y {
+  from {
+    transform: translateY(calc(var(--bee-y) * -1));
+  }
+  to {
+    transform: translateY(var(--bee-y));
+  }
+}
+
+/* ─── Fallende blader ───────────────────────────────────────────────────────── */
+.falling-leaves {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.falling-leaf {
+  position: absolute;
+  top: -40px;
+  display: block;
+  will-change: transform;
+  animation: leaf-fall var(--leaf-dur, 12s) linear var(--leaf-delay, 0s) infinite;
+}
+
+.falling-leaf__sway {
+  display: block;
+  will-change: transform;
+  animation: leaf-sway calc(var(--leaf-dur, 12s) / 4) ease-in-out var(--leaf-delay, 0s) infinite alternate;
+}
+
+@keyframes leaf-fall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--leaf-distance, 110vh));
+  }
+}
+
+@keyframes leaf-sway {
+  from {
+    transform: translateX(calc(var(--leaf-sway, 40px) * -0.5)) rotate(-35deg);
+  }
+  to {
+    transform: translateX(calc(var(--leaf-sway, 40px) * 0.5)) rotate(40deg);
+  }
+}

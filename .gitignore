@@ -1,0 +1,20 @@
+node_modules
+dist
+*.local
+.env
+.env.*
+!.env.example
+
+# Originalbilder (kan inneholde GPS/EXIF). Kun de rensede versjonene i public/images/atlas publiseres.
+photos-originals/
+
+# Diverse
+.DS_Store
+Thumbs.db
+*.log
+coverage
+.vite
+test-results
+
+# Lokale verktøyinnstillinger
+.claude/

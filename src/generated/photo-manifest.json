@@ -1,0 +1,42 @@
+{
+  "atlas-bjorn": {
+    "width": 1290,
+    "height": 2293,
+    "widths": [
+      480,
+      720,
+      1080
+    ],
+    "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwAwCdASoQABwAPu1iqk2ppaQiMAgBMB2JaQAAQfHInDr1dlBye5IAAP6N5qnw/ejDYD5GoDKBIaqpdCLjhUBPThF7EP2wofgJQMJajwEDLmLYVulHh54FK42dAPOmkViV6jZFGffCbSFnF5/azNzi9aiTTi2QR2BjcXDGVAAAAA=="
+  },
+  "atlas-portrett": {
+    "width": 1290,
+    "height": 2293,
+    "widths": [
+      480,
+      720,
+      1080
+    ],
+    "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoQABwAPu1iqk4ppaQiMAgBMB2JaQAL4AFQKxdSFV8uOa6Vv/CAAP51uuWVfDWdwaMJL96iscq+GaI/9gJpHtqLcw+el3IkQzKppsJ0if81Czazjjg6RhrfiM9GbmORsBp4+5zYiZ4baqj/XSnVxK6OSYftRzcabLcwbTjbL4qome4is5tJ1oAA"
+  },
+  "atlas-sover": {
+    "width": 1284,
+    "height": 2282,
+    "widths": [
+      480,
+      720,
+      1080
+    ],
+    "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwBACdASoQAB0APu1iqU2ppaOiMAgBMB2JaQAM5QHsh+/xgThA7IneYAAA/nVKj7zhsnZkA0XWiuQhj72jOOhkLhBIp/KIhC4SQICzXtDRt9MxYAGY8kRf0t/C7MW6cngnLH7dygiK6ksExAIMWIEahogAAA=="
+  },
+  "atlas-tunge": {
+    "width": 1290,
+    "height": 2293,
+    "widths": [
+      480,
+      720,
+      1080
+    ],
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABwAPu1iqU2ppaQiMAgBMB2JaQAAK6J3A+0+kFOeY1+YAAD+0+fc9PgT46KoRILmt9an+wl1rqjc+/m81SMoK5FGroJym3lL6jdxPwzOS5bKThRU2lGhtlX5o/YtylGPe2Ak6yyF6CL2fmv3JTajr3gAAA=="
+  }
+}

@@ -1,0 +1,75 @@
+# Bygger og publiserer invitasjonen til GitHub Pages hver gang main oppdateres.
+# Kan også startes manuelt: Actions → «Publiser invitasjonen» → Run workflow.
+#
+# Før første kjøring (se README → «Publisering»):
+#   1. Settings → Pages → Source: «GitHub Actions»
+#   2. Settings → Secrets and variables → Actions → Variables:
+#        VITE_SUPABASE_URL              (f.eks. https://abcd1234.supabase.co)
+#        VITE_SUPABASE_PUBLISHABLE_KEY  (publishable key eller den eldre anon-nøkkelen)
+#      Disse er offentlige verdier (de havner i nettleseren uansett) – IKKE legg inn service_role/secret key.
+name: Publiser invitasjonen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Tester (skjema, formatering, CSV)
+        run: npm test
+
+      - name: Tester (database og sikkerhetsregler)
+        run: npm run test:db
+
+      - name: Finn adressen til siden
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Sjekk Supabase-oppsett
+        run: |
+          if [ -z "${{ vars.VITE_SUPABASE_URL }}" ] || [ -z "${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}" ]; then
+            echo "::warning::VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY er ikke satt. Siden publiseres, men svarskjemaet vil vise «ikke klar ennå»."
+          fi
+
+      - name: Bygg
+        run: npm run build
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          VITE_SITE_URL: ${{ steps.pages.outputs.base_url }}/
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 222" width="240" height="222">
+  <!-- Original illustrasjon: en liten gris som kikker over kanten. -->
+  <defs>
+    <!--FILTERS-->
+    <path id="ear-l" d="M80 104 C 66 82 58 58 62 38 C 80 42 100 60 106 86 Z"/>
+    <path id="ear-r" d="M160 104 C 174 82 182 58 178 38 C 160 42 140 60 134 86 Z"/>
+    <path id="head" d="M120 76 C 160 76 182 102 182 136 C 182 170 156 194 120 194 C 84 194 58 170 58 136 C 58 102 80 76 120 76 Z"/>
+    <path id="hand-l" d="M58 190 C 72 190 82 196 82 204 C 82 212 72 216 58 216 C 44 216 36 211 36 204 C 36 196 44 190 58 190 Z"/>
+    <path id="hand-r" d="M182 190 C 196 190 204 196 204 204 C 204 211 196 216 182 216 C 168 216 158 212 158 204 C 158 196 168 190 182 190 Z"/>
+  </defs>
+
+  <use href="#ear-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#ear-l" fill="#f1b2aa" filter="url(#wash)"/>
+  <path d="M84 96 C 76 80 72 64 74 52 C 86 58 96 70 99 86 Z" fill="#e08c8a" opacity="0.7" filter="url(#wash)"/>
+  <use href="#ear-l" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#ear-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#ear-r" fill="#f1b2aa" filter="url(#wash)"/>
+  <path d="M156 96 C 164 80 168 64 166 52 C 154 58 144 70 141 86 Z" fill="#e08c8a" opacity="0.7" filter="url(#wash)"/>
+  <use href="#ear-r" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+
+  <use href="#head" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#head" fill="#f4bdb4" filter="url(#wash)"/>
+  <path d="M168 112 C 182 140 176 176 146 190 C 132 195 122 194 118 194 C 150 184 170 160 168 112 Z" fill="#dc958f" opacity="0.5" filter="url(#wash)"/>
+  <circle cx="84" cy="152" r="12" fill="#e57f86" opacity="0.4" filter="url(#wash-soft)"/>
+  <circle cx="156" cy="152" r="12" fill="#e57f86" opacity="0.4" filter="url(#wash-soft)"/>
+  <ellipse cx="120" cy="150" rx="25" ry="18" fill="#ef9f98" filter="url(#wash)"/>
+  <use href="#head" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+
+  <g filter="url(#ink)">
+    <ellipse cx="120" cy="150" rx="25" ry="18" fill="none" stroke="#4a3426" stroke-width="1.8"/>
+    <ellipse cx="111" cy="150" rx="3.6" ry="5.6" fill="#8e4a48"/>
+    <ellipse cx="129" cy="150" rx="3.6" ry="5.6" fill="#8e4a48"/>
+    <ellipse cx="97" cy="124" rx="5" ry="6.2" fill="#3a281c"/>
+    <ellipse cx="143" cy="124" rx="5" ry="6.2" fill="#3a281c"/>
+    <circle cx="98.8" cy="121.6" r="1.8" fill="#fff"/>
+    <circle cx="144.8" cy="121.6" r="1.8" fill="#fff"/>
+    <path d="M88 110 C 92 105 100 105 104 108 M136 108 C 140 105 148 105 152 110" fill="none" stroke="#4a3426" stroke-width="1.7" stroke-linecap="round" opacity="0.75"/>
+    <path d="M110 175 C 116 181 124 181 130 175" fill="none" stroke="#4a3426" stroke-width="2" stroke-linecap="round"/>
+    <path d="M116 80 C 111 70 115 61 122 63 C 117 69 123 74 129 69" fill="none" stroke="#4a3426" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <use href="#hand-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#hand-l" fill="#f4bdb4" filter="url(#wash)"/>
+  <use href="#hand-l" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <use href="#hand-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#hand-r" fill="#f4bdb4" filter="url(#wash)"/>
+  <use href="#hand-r" fill="none" stroke="#4a3426" stroke-width="2" filter="url(#ink)"/>
+  <g filter="url(#ink)" fill="none" stroke="#4a3426" stroke-width="1.6" stroke-linecap="round" opacity="0.8">
+    <path d="M52 206 L52 214 M60 206 L60 215 M68 205 L68 213"/>
+    <path d="M174 205 L174 213 M182 206 L182 215 M190 206 L190 214"/>
+  </g>
+</svg>

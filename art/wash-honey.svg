@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!-- Honningfarget akvarellflekk. Generert av scripts/generate-scenes.mjs -->
+  <defs>
+    <!--FILTERS-->
+  </defs>
+  <g fill="#efbf55" opacity="0.55" filter="url(#wash-soft)"><circle cx="267" cy="233.6" r="103"/><circle cx="293" cy="294.5" r="128"/><circle cx="290.1" cy="258.4" r="149.1"/><circle cx="311.6" cy="371.5" r="138"/><circle cx="299.1" cy="298.9" r="119.5"/><circle cx="267.7" cy="378.7" r="107.6"/><circle cx="302.8" cy="233.2" r="105.2"/><circle cx="391" cy="308.7" r="102.2"/><circle cx="298" cy="311.3" r="119.8"/></g>
+  <g fill="#efbf55" opacity="0.35" filter="url(#wash-soft)"><circle cx="348.9" cy="279.2" r="62.4"/><circle cx="344.2" cy="264.1" r="77.1"/><circle cx="350.9" cy="278.5" r="76.1"/><circle cx="343.7" cy="332.4" r="91.2"/><circle cx="358.5" cy="258.3" r="94.9"/></g>
+  <g fill="#efbf55" opacity="0.6" filter="url(#wash)"><circle cx="159.7" cy="109" r="5.8"/><circle cx="82.9" cy="184.8" r="6.7"/><circle cx="121.9" cy="153.8" r="7.6"/><circle cx="165.4" cy="507.7" r="7.2"/><circle cx="301.2" cy="538.8" r="7"/><circle cx="249.5" cy="575.3" r="2.1"/><circle cx="141.1" cy="515.7" r="3.9"/><circle cx="175.6" cy="102" r="2.5"/><circle cx="275.8" cy="44.9" r="3.5"/><circle cx="510.4" cy="201.1" r="6.4"/><circle cx="534.1" cy="230.2" r="5.2"/><circle cx="469" cy="86.4" r="5.5"/><circle cx="555.3" cy="228.4" r="5.2"/><circle cx="488.6" cy="455.9" r="5.2"/></g>
+
+</svg>

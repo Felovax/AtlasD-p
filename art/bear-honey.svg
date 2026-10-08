@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 480" width="400" height="480">
+  <!-- Original illustrasjon: en liten honningbjørn med honningkrukke. Tegnet for Atlas' dåpsinvitasjon. -->
+  <defs>
+    <!--FILTERS-->
+    <path id="ear-l" d="M136 62 C 154 62 166 76 166 93 C 166 110 153 122 136 122 C 119 122 106 110 106 93 C 106 76 119 62 136 62 Z"/>
+    <path id="ear-r" d="M264 62 C 281 62 294 76 294 93 C 294 110 281 122 264 122 C 247 122 234 110 234 93 C 234 76 246 62 264 62 Z"/>
+    <path id="head" d="M200 74 C 254 74 286 108 286 150 C 286 197 249 225 200 225 C 151 225 114 197 114 150 C 114 108 146 74 200 74 Z"/>
+    <path id="body" d="M200 204 C 137 204 103 262 101 330 C 99 398 140 440 200 440 C 260 440 301 398 299 330 C 297 262 263 204 200 204 Z"/>
+    <path id="foot-l" d="M150 408 C 175 408 192 420 192 434 C 192 448 174 456 150 456 C 126 456 108 448 108 434 C 108 420 125 408 150 408 Z"/>
+    <path id="foot-r" d="M250 408 C 275 408 292 420 292 434 C 292 448 274 456 250 456 C 226 456 208 448 208 434 C 208 420 225 408 250 408 Z"/>
+    <path id="pot" d="M163 297 C 145 309 129 330 129 360 C 129 397 160 419 200 419 C 240 419 271 397 271 360 C 271 330 255 309 237 297 Z"/>
+    <path id="rim" d="M163 283 L237 283 C 243 283 247 287 247 292 C 247 297 243 301 237 301 L163 301 C 157 301 153 297 153 292 C 153 287 157 283 163 283 Z"/>
+    <path id="arm-l" d="M138 244 C 117 254 107 286 113 318 C 117 341 132 357 149 355 C 163 353 165 337 155 327 C 143 313 140 290 150 266 C 154 256 150 246 138 244 Z"/>
+    <path id="arm-r" d="M262 244 C 283 254 293 286 287 318 C 283 341 268 357 251 355 C 237 353 235 337 245 327 C 257 313 260 290 250 266 C 246 256 250 246 262 244 Z"/>
+    <path id="label" d="M163 347 L236 342 L238 375 L165 380 Z"/>
+  </defs>
+
+  <!-- skygge på bakken -->
+  <ellipse cx="200" cy="452" rx="128" ry="16" fill="#7a6440" opacity="0.22" filter="url(#wash-soft)"/>
+
+  <!-- ører -->
+  <use href="#ear-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#ear-l" fill="#d29a3c" filter="url(#wash)"/>
+  <circle cx="139" cy="96" r="15" fill="#e8b678" filter="url(#wash)"/>
+  <use href="#ear-l" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+  <use href="#ear-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#ear-r" fill="#d29a3c" filter="url(#wash)"/>
+  <circle cx="261" cy="96" r="15" fill="#e8b678" filter="url(#wash)"/>
+  <use href="#ear-r" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+
+  <!-- kropp -->
+  <use href="#body" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#body" fill="#d9a441" filter="url(#wash)"/>
+  <path d="M120 380 C 150 430 250 430 280 380 C 270 420 240 440 200 440 C 160 440 130 420 120 380 Z" fill="#b5792a" opacity="0.35" filter="url(#wash-soft)"/>
+  <ellipse cx="200" cy="322" rx="58" ry="70" fill="#f1d49b" opacity="0.75" filter="url(#wash-soft)"/>
+  <use href="#body" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+
+  <!-- føtter -->
+  <use href="#foot-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#foot-l" fill="#d29a3c" filter="url(#wash)"/>
+  <ellipse cx="150" cy="437" rx="23" ry="11" fill="#f1d49b" filter="url(#wash)"/>
+  <use href="#foot-l" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+  <use href="#foot-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#foot-r" fill="#d29a3c" filter="url(#wash)"/>
+  <ellipse cx="250" cy="437" rx="23" ry="11" fill="#f1d49b" filter="url(#wash)"/>
+  <use href="#foot-r" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+
+  <!-- hode -->
+  <use href="#head" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#head" fill="#dcaa48" filter="url(#wash)"/>
+  <path d="M270 120 C 286 150 282 190 254 212 C 236 224 214 226 200 225 C 240 214 268 186 270 120 Z" fill="#b5792a" opacity="0.4" filter="url(#wash)"/>
+  <ellipse cx="200" cy="170" rx="39" ry="29" fill="#f4deaa" filter="url(#wash)"/>
+  <circle cx="153" cy="174" r="14" fill="#e58f74" opacity="0.4" filter="url(#wash-soft)"/>
+  <circle cx="247" cy="174" r="14" fill="#e58f74" opacity="0.4" filter="url(#wash-soft)"/>
+  <use href="#head" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+
+  <!-- ansikt -->
+  <g filter="url(#ink)">
+    <ellipse cx="171" cy="134" rx="6" ry="7.5" fill="#3a281c"/>
+    <ellipse cx="229" cy="134" rx="6" ry="7.5" fill="#3a281c"/>
+    <circle cx="173.2" cy="131.2" r="2.1" fill="#fff"/>
+    <circle cx="231.2" cy="131.2" r="2.1" fill="#fff"/>
+    <path d="M159 118 C 165 112 176 112 182 116" fill="none" stroke="#4a3426" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+    <path d="M218 116 C 224 112 235 112 241 118" fill="none" stroke="#4a3426" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+    <path d="M186 157 C 192 150 208 150 214 157 C 214 166 206 172 200 172 C 194 172 186 166 186 157 Z" fill="#3a281c"/>
+    <ellipse cx="195" cy="156" rx="4" ry="2" fill="#fff" opacity="0.55"/>
+    <path d="M200 172 L200 180 M186 179 C 192 190 208 190 214 179" fill="none" stroke="#4a3426" stroke-width="2.1" stroke-linecap="round"/>
+    <path d="M193 80 C 194 72 199 69 202 72 M204 79 C 207 71 212 70 214 73" fill="none" stroke="#4a3426" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- honningkrukke -->
+  <use href="#pot" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#pot" fill="#c77d3e" filter="url(#wash)"/>
+  <path d="M248 318 C 262 334 268 364 258 390 C 250 405 236 414 220 418 C 248 400 260 368 248 318 Z" fill="#9b5a2a" opacity="0.5" filter="url(#wash)"/>
+  <path d="M146 348 C 146 332 152 320 162 312" fill="none" stroke="#f0bf8a" stroke-width="7" stroke-linecap="round" opacity="0.8" filter="url(#wash)"/>
+  <path d="M160 300 C 160 312 166 322 171 322 C 176 322 177 311 181 306 C 185 313 185 335 192 335 C 199 335 197 313 203 306 C 207 314 209 321 214 321 C 219 321 221 309 227 304 C 231 311 233 327 238 327 C 243 327 243 311 242 300 Z" fill="#eeb03a" filter="url(#wash)"/>
+  <use href="#pot" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+  <ellipse cx="200" cy="284" rx="36" ry="9" fill="#f2b940" filter="url(#wash)"/>
+  <use href="#rim" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#rim" fill="#b06a32" filter="url(#wash)"/>
+  <path d="M168 300 C 168 306 172 312 175 312 C 178 312 179 305 180 301 M222 301 C 223 308 226 316 229 316 C 232 316 232 307 232 301" fill="#eeb03a" stroke="none" filter="url(#wash)"/>
+  <use href="#rim" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+  <use href="#label" fill="#f8eedb" filter="url(#solid)"/>
+  <use href="#label" fill="none" stroke="#4a3426" stroke-width="1.8" filter="url(#ink)"/>
+  <text x="201" y="366" transform="rotate(-3.5 201 361)" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="10.5" font-weight="700" fill="#6b4226" letter-spacing="0.3">HONNING</text>
+
+  <!-- armer og poter som holder krukka -->
+  <use href="#arm-l" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#arm-l" fill="#d29a3c" filter="url(#wash)"/>
+  <use href="#arm-l" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+  <use href="#arm-r" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#arm-r" fill="#d29a3c" filter="url(#wash)"/>
+  <use href="#arm-r" fill="none" stroke="#4a3426" stroke-width="2.1" filter="url(#ink)"/>
+  <g filter="url(#ink)" fill="none" stroke="#4a3426" stroke-width="1.8" stroke-linecap="round" opacity="0.8">
+    <path d="M140 344 C 143 349 146 351 150 351 M134 336 C 137 341 140 343 144 343"/>
+    <path d="M260 344 C 257 349 254 351 250 351 M266 336 C 263 341 260 343 256 343"/>
+  </g>
+</svg>

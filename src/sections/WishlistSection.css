@@ -1,0 +1,115 @@
+.wishlist {
+  padding-top: clamp(2rem, 8vw, 3.5rem);
+}
+
+.wishlist__intro {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.75rem auto 0;
+  max-width: 30rem;
+}
+
+.wishlist__intro p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.wishlist__pot {
+  position: relative;
+  flex: none;
+  width: clamp(76px, 22vw, 104px);
+}
+
+.wishlist__pot img {
+  width: 100%;
+  height: auto;
+  transform: rotate(-6deg);
+}
+
+.wishlist__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.wishlist__missing {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Ønskene som små pakkelapper */
+.wishlist__tags {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 560px) {
+  .wishlist__tags {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.gift-tag {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.1rem 1rem 3rem;
+  border: 1.5px solid rgba(139, 106, 74, 0.45);
+  border-radius: 10px 22px 22px 10px;
+  background: var(--paper-texture) repeat, #fffaf0;
+  background-size: 360px 360px, auto;
+  box-shadow: 0 6px 14px -8px rgba(74, 52, 38, 0.35);
+  transform: rotate(-1deg);
+}
+
+.gift-tag:nth-child(2n) {
+  transform: rotate(1.2deg);
+}
+
+.gift-tag__hole {
+  position: absolute;
+  left: 1.05rem;
+  top: 50%;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: -0.45rem;
+  border: 2px solid rgba(139, 106, 74, 0.7);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.gift-tag__hole::after {
+  /* Hyssingen */
+  content: '';
+  position: absolute;
+  right: 60%;
+  top: 50%;
+  width: 1.6rem;
+  height: 2px;
+  background: #b0412e;
+  transform: rotate(-24deg);
+  transform-origin: right center;
+}
+
+.gift-tag__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.gift-tag__note {
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.gift-tag__link {
+  align-self: flex-start;
+  margin-top: 0.3rem;
+  padding: 0.35rem 0;
+  font-weight: 600;
+}

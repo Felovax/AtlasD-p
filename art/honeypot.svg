@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 320" width="300" height="320">
+  <!-- Original illustrasjon: en honningkrukke full til randen, med honningskje. -->
+  <defs>
+    <!--FILTERS-->
+    <path id="pot" d="M96 110 C 66 130 44 168 44 210 C 44 264 92 294 150 294 C 208 294 256 264 256 210 C 256 168 234 130 204 110 Z"/>
+    <path id="rim" d="M92 86 L208 86 C 218 86 225 93 225 101 C 225 109 218 116 208 116 L92 116 C 82 116 75 109 75 101 C 75 93 82 86 92 86 Z"/>
+    <path id="label" d="M104 180 L198 174 L201 220 L107 226 Z"/>
+  </defs>
+
+  <ellipse cx="150" cy="300" rx="112" ry="12" fill="#7a6440" opacity="0.22" filter="url(#wash-soft)"/>
+
+  <!-- honningskje -->
+  <g filter="url(#ink)">
+    <path d="M150 92 L214 22" stroke="#4a3426" stroke-width="11" stroke-linecap="round"/>
+    <path d="M150 92 L214 22" stroke="#fbf6ea" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <path d="M150 92 L214 22" stroke="#b98d5c" stroke-width="7" stroke-linecap="round" filter="url(#wash)"/>
+  <circle cx="217" cy="19" r="8" fill="#a37a4c" filter="url(#wash)"/>
+  <circle cx="217" cy="19" r="8" fill="none" stroke="#4a3426" stroke-width="1.8" filter="url(#ink)"/>
+
+  <use href="#pot" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#pot" fill="#c77d3e" filter="url(#wash)"/>
+  <path d="M226 140 C 248 166 256 210 244 246 C 234 270 214 286 190 292 C 230 262 246 210 226 140 Z" fill="#9b5a2a" opacity="0.5" filter="url(#wash)"/>
+  <path d="M68 200 C 68 176 78 156 92 144" fill="none" stroke="#f0bf8a" stroke-width="10" stroke-linecap="round" opacity="0.8" filter="url(#wash)"/>
+  <path d="M90 114 C 90 132 98 148 106 148 C 114 148 116 130 122 122 C 128 134 128 168 138 168 C 148 168 146 134 154 122 C 160 134 164 146 172 146 C 180 146 182 128 190 120 C 196 132 198 156 206 156 C 214 156 214 130 212 114 Z" fill="#eeb03a" filter="url(#wash)"/>
+  <use href="#pot" fill="none" stroke="#4a3426" stroke-width="2.2" filter="url(#ink)"/>
+
+  <ellipse cx="150" cy="88" rx="56" ry="13" fill="#f2b940" filter="url(#wash)"/>
+  <use href="#rim" fill="#fbf6ea" filter="url(#solid)"/>
+  <use href="#rim" fill="#b06a32" filter="url(#wash)"/>
+  <path d="M100 114 C 100 124 106 134 110 134 C 114 134 116 124 117 116 M184 116 C 185 128 190 140 195 140 C 200 140 200 126 200 116" fill="#eeb03a" filter="url(#wash)"/>
+  <use href="#rim" fill="none" stroke="#4a3426" stroke-width="2.2" filter="url(#ink)"/>
+  <path d="M140 86 C 144 70 154 66 150 60" stroke="#4a3426" stroke-width="0" fill="none"/>
+
+  <use href="#label" fill="#f8eedb" filter="url(#solid)"/>
+  <use href="#label" fill="none" stroke="#4a3426" stroke-width="1.8" filter="url(#ink)"/>
+  <text x="153" y="206" text-anchor="middle" transform="rotate(-3.5 153 200)" font-family="Segoe Print, Comic Sans MS, cursive" font-size="16" font-weight="700" fill="#6b4226" letter-spacing="0.5">HONNING</text>
+</svg>
