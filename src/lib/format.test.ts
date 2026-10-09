@@ -95,7 +95,7 @@ describe('konfigurasjonen', () => {
     expect(invitation.texts.closing.signature).toBe('Hilsen Erica og Matias');
   });
 
-  it('lister opp det som mangler', () => {
-    expect(missingConfig()).toEqual(expect.arrayContaining([expect.stringMatching(/ønskelisten/)]));
+  it('har ingen plassholdere igjen', () => {
+    expect(missingConfig()).toEqual([]);
   });
 });

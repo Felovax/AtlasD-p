@@ -38,16 +38,57 @@
   text-align: center;
 }
 
-/* Ønskene som små pakkelapper */
+/* Forklaring om reservering */
+.wishlist__hint {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  margin: 1.75rem auto 0;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: var(--honey-light);
+  border: 1.5px solid rgba(184, 118, 26, 0.35);
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.wishlist__hint-box {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: 0.1rem;
+  border: 2.5px solid var(--ink);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--honey-deep);
+}
+
+.wishlist__hint-box svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.wishlist__load-error {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: var(--error-bg);
+  color: #6e2412;
+  font-size: 1rem;
+}
+
+/* Ønskene som små pakkelapper, med en tydelig avkrysningsrute */
 .wishlist__tags {
   display: grid;
   gap: 1rem;
-  margin: 2rem 0 0;
+  margin: 1.5rem 0 0;
   padding: 0;
   list-style: none;
 }
 
-@media (min-width: 560px) {
+@media (min-width: 640px) {
   .wishlist__tags {
     grid-template-columns: 1fr 1fr;
   }
@@ -56,60 +97,174 @@
 .gift-tag {
   position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 1rem 1.1rem 1rem 3rem;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
   border: 1.5px solid rgba(139, 106, 74, 0.45);
-  border-radius: 10px 22px 22px 10px;
+  border-radius: 12px 22px 22px 12px;
   background: var(--paper-texture) repeat, #fffaf0;
   background-size: 360px 360px, auto;
   box-shadow: 0 6px 14px -8px rgba(74, 52, 38, 0.35);
-  transform: rotate(-1deg);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.gift-tag:nth-child(2n) {
-  transform: rotate(1.2deg);
+.gift-tag.is-mine {
+  border: 2.5px solid var(--honey-deep);
+  background: var(--paper-texture) repeat, #fff4d6;
+  background-size: 360px 360px, auto;
 }
 
-.gift-tag__hole {
+.gift-tag.is-taken {
+  background: var(--paper-texture) repeat, #efe7d4;
+  background-size: 360px 360px, auto;
+}
+
+.gift-tag.is-taken .gift-tag__title,
+.gift-tag.is-taken .gift-tag__note,
+.gift-tag.is-taken .gift-tag__links {
+  opacity: 0.6;
+}
+
+/* Avkrysningsruten */
+.gift-tag__check {
+  position: relative;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 3.4rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gift-tag__check input {
   position: absolute;
-  left: 1.05rem;
-  top: 50%;
-  width: 0.9rem;
-  height: 0.9rem;
-  margin-top: -0.45rem;
-  border: 2px solid rgba(139, 106, 74, 0.7);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.gift-tag__check input:disabled {
+  cursor: default;
+}
+
+.gift-tag__box {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  color: transparent;
+  box-shadow: 0 3px 0 rgba(74, 52, 38, 0.25);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.gift-tag__box svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.gift-tag__check:hover .gift-tag__box {
+  background: #fff7e3;
+}
+
+.gift-tag__check input:checked + .gift-tag__box {
+  background: var(--honey);
+  color: var(--ink);
+}
+
+.gift-tag.is-taken .gift-tag__check input:checked + .gift-tag__box {
+  background: #d9cfbb;
+  border-color: rgba(62, 44, 30, 0.55);
+  color: rgba(62, 44, 30, 0.7);
+  box-shadow: none;
+}
+
+.gift-tag__check input:focus-visible + .gift-tag__box {
+  outline: 3px solid var(--leaf-deep);
+  outline-offset: 3px;
+}
+
+.gift-tag__check:active .gift-tag__box {
+  transform: scale(0.94);
+}
+
+.gift-tag__check-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--honey-ink);
+}
+
+.gift-tag.is-taken .gift-tag__check-text {
+  color: var(--ink-soft);
+}
+
+.gift-tag__spinner {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 3px solid rgba(62, 44, 30, 0.25);
+  border-top-color: var(--ink);
   border-radius: 50%;
-  background: var(--paper);
+  animation: spin 0.8s linear infinite;
 }
 
-.gift-tag__hole::after {
-  /* Hyssingen */
-  content: '';
-  position: absolute;
-  right: 60%;
-  top: 50%;
-  width: 1.6rem;
-  height: 2px;
-  background: #b0412e;
-  transform: rotate(-24deg);
-  transform-origin: right center;
+/* Teksten */
+.gift-tag__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
 }
 
 .gift-tag__title {
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 650;
   line-height: 1.3;
 }
 
 .gift-tag__note {
   color: var(--ink-soft);
-  font-size: 1rem;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.gift-tag__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+  margin-top: 0.15rem;
 }
 
 .gift-tag__link {
-  align-self: flex-start;
-  margin-top: 0.3rem;
-  padding: 0.35rem 0;
+  padding: 0.3rem 0;
   font-weight: 600;
+}
+
+.gift-tag__status {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--honey-ink);
+}
+
+.gift-tag__status:empty {
+  display: none;
+}
+
+.gift-tag__status.is-error {
+  color: var(--error);
 }

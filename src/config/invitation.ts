@@ -53,12 +53,19 @@ export interface StoryPhoto {
 }
 
 export interface WishItem {
-  /** Hva ønsket er, f.eks. «Sølvskje med navn». */
+  /**
+   * Fast ID for ønsket: små bokstaver, tall og bindestrek (f.eks. 'gyngehest').
+   * Reservasjonene er knyttet til ID-en – ikke endre den etter at gjestene har begynt å reservere.
+   */
+  id: string;
+  /** Hva ønsket er, f.eks. «Gyngehest». */
   title: string;
-  /** Valgfri kort kommentar, f.eks. størrelse, farge eller butikk. */
+  /** Valgfri kort kommentar, f.eks. farge, modell eller butikk. */
   note?: string;
   /** Valgfri lenke til produktet. */
   url?: string;
+  /** Flere lenker (f.eks. sølv eller gull). Vises som egne knapper. */
+  links?: { label: string; url: string }[];
 }
 
 export const invitation = {
@@ -106,20 +113,96 @@ export const invitation = {
    *
    *  1. `url`: lenke til en ferdig ønskeliste, f.eks. fra Ønskeskyen. Der kan gjestene også
    *     markere hva de kjøper, så ingen gir det samme. Vises som en stor knapp.
-   *  2. `items`: skriv ønskene rett her, f.eks.
-   *        items: [
-   *          { title: 'Sølvskje med navn' },
-   *          { title: 'Bøker', note: 'Gjerne klassiske barnebøker' },
-   *          { title: 'Sparegris', url: 'https://…' },
-   *        ],
+   *  2. `items`: skriv ønskene rett her. Gjestene kan huke av for å reservere et ønske,
+   *     så andre ser at det er tatt (ingen ser hvem). Eksempel:
+   *        { id: 'solvskje', title: 'Sølvskje med navn', note: 'Gjerne fra …', url: 'https://…' },
    *     Bruker du bare lista, sett `url: null`.
    *
    * Sett `enabled: false` for å skjule hele ønskelisten.
    */
   wishlist: {
     enabled: true,
-    url: fyllInn('Lenke til ønskelisten (eller skriv ønskene i «items»)') as Fillable<string> | null,
-    items: [] as WishItem[],
+    url: null as Fillable<string> | null,
+    items: [
+      {
+        id: 'vognpose',
+        title: 'Helårs vognpose',
+        note: 'Explorer vognpose, walnut',
+        url: 'https://www.barnashus.no/barnevogn/vognpose/explorer-vognpose-walnut-solid-11040956',
+      },
+      {
+        id: 'lekebil',
+        title: 'Lekebil',
+        note: 'Mini sparkebil med navn, hvit vintage',
+        url: 'https://rofadesign.no/no/gaver/gaver-etter-tema/dapsgaver/mini-sparkebil-med-navn-hvit-vintage/',
+      },
+      {
+        id: 'gyngehest',
+        title: 'Gyngehest',
+        note: 'Gyngedyr med navn – giraff',
+        url: 'https://rofadesign.no/no/gaver/gaver-etter-tema/dapsgaver/gyngedyr-med-navn-giraff/',
+      },
+      {
+        id: 'julestrompe',
+        title: 'Personlig julestrømpe',
+        note: 'Med navn, rød fløyel',
+        url: 'https://rofadesign.no/no/sortiment/jul/julestromper/julestrompe-med-navn-rod-floyel/',
+      },
+      {
+        id: 'syttende-mai-sloyfe',
+        title: '17. mai-sløyfe',
+        note: 'Teddybjørn med 17. mai-sløyfe i tinn',
+        url: 'https://www.bjorklund.no/teddybjoern-med-17-mai-sloeyfe-i-tinn',
+      },
+      {
+        id: 'flaggstang',
+        title: 'Flaggstang',
+        note: 'Bordflaggstang med tinnfot i eik',
+        url: 'https://www.bjorklund.no/flaggstang-tinnfot-eik',
+      },
+      {
+        id: 'armband',
+        title: 'Armbånd',
+        note: 'Med graveringsplate i 925 sølv',
+        url: 'https://www.bjorklund.no/armbaand-med-graveringsplate-i-925-soelv-msb10061',
+      },
+      {
+        id: 'kors-smykke',
+        title: 'Kors-smykke',
+        note: 'I sølv eller gull',
+        links: [
+          { label: 'Sølv', url: 'https://www.gullfunn.no/produkter/1998554/smykke-til-barn-i-925-solv-med-kors' },
+          { label: 'Gull', url: 'https://www.gullfunn.no/produkter/53718/smykke-til-barn-i-585-gult-gull-med-kors' },
+        ],
+      },
+      {
+        id: 'smykkeskrin',
+        title: 'Smykkeskrin',
+        note: 'Skrin til barn med sølvdekor',
+        url: 'https://www.gullfunn.no/produkter/96846/skrin-til-barn-med-solvdekor',
+      },
+      {
+        id: 'minnebok',
+        title: 'Minnebok',
+        note: '«Et lite eventyr», mørk blå',
+        url: 'https://www.bjorklund.no/et-lite-eventyr-minnebok-moerk-blaa',
+      },
+      {
+        id: 'sparebosse',
+        title: 'Sparebøsse',
+        note: 'Racerbil eller sportsbil',
+        links: [
+          { label: 'Racerbil', url: 'https://www.bjorklund.no/spareboesse-racerbil-fortinnet' },
+          { label: 'Sportsbil', url: 'https://www.gullfunn.no/produkter/96830/sparebosse-til-barn-sportsbil' },
+        ],
+      },
+      {
+        id: 'barnegrind',
+        title: 'Barnegrind',
+        note: 'Beemoo Safe Space lekegrind 130 × 130, ash grey',
+        url: 'https://www.jollyroom.no/babyutstyr/barnesikring/barnegrinder-trappegrinder/lekegrinder/beemoo-safe-space-lekegrind-130x130-ash-grey',
+      },
+    ] as WishItem[],
   },
 
   texts: {
@@ -159,6 +242,8 @@ export const invitation = {
       chapterTitle: 'der vi fyller honningkrukka',
       heading: 'Ønskeliste',
       body: 'Det aller fineste er at du kommer og feirer sammen med oss! Men mange har spurt hva Atlas ønsker seg, så her er noen ideer.',
+      reserveHint:
+        'Vil du gi et av ønskene? Huk av i ruten ved gaven, så ser de andre at den er tatt. Ingen får vite hvem som har reservert den, og du kan angre fra samme telefon.',
       button: 'Åpne ønskelisten',
     },
     closing: {

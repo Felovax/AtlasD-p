@@ -11,7 +11,7 @@
     "typecheck": "tsc -b",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:db": "node supabase/tests/rsvp.test.mjs",
+    "test:db": "node supabase/tests/rsvp.test.mjs && node supabase/tests/wishes.test.mjs && node supabase/tests/cleanup.test.mjs",
     "photos": "node scripts/prepare-photos.mjs",
     "illustrations": "node scripts/render-illustrations.mjs",
     "check:mobile": "node scripts/mobile-check.mjs",

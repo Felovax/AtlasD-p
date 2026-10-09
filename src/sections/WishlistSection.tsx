@@ -1,9 +1,11 @@
+import { useCallback, useEffect, useState } from 'react';
 import { invitation, isPlaceholder, type WishItem } from '../config/invitation';
 import { ChapterHeading, Ornament } from '../components/decor/Ornament';
 import { FlyingBee } from '../components/decor/Bee';
 import { Fill } from '../components/Fill';
 import { Reveal } from '../components/Reveal';
 import { tidy } from '../lib/format';
+import { fetchReservedWishes, myReservations, reserveWish, unreserveWish, wishErrorMessage } from '../lib/wishes';
 import honeypot from '../assets/illustrations/honeypot.webp';
 import './WishlistSection.css';
 
@@ -54,23 +56,7 @@ export function WishlistSection() {
           </div>
         )}
 
-        {content.items.length > 0 && (
-          <ul className="wishlist__tags">
-            {content.items.map((item, index) => (
-              <li key={`${item.title}-${index}`} className="gift-tag">
-                <span className="gift-tag__hole" aria-hidden="true" />
-                <span className="gift-tag__title">{item.title}</span>
-                {item.note && <span className="gift-tag__note">{item.note}</span>}
-                {item.url && (
-                  <a className="gift-tag__link" href={item.url} target="_blank" rel="noopener noreferrer">
-                    Se ønsket<span className="visually-hidden">: {item.title} (åpnes i en ny fane)</span>
-                    <span aria-hidden="true"> ↗</span>
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
+        {content.items.length > 0 && <WishItems items={content.items} hint={texts.reserveHint} />}
 
         {content.missing && placeholder && (
           <p className="wishlist__missing">
@@ -79,6 +65,150 @@ export function WishlistSection() {
         )}
       </div>
     </section>
+  );
+}
+
+type ItemMessage = { id: string; text: string; tone: 'info' | 'error' };
+
+function WishItems({ items, hint }: { items: WishItem[]; hint: string }) {
+  const [reserved, setReserved] = useState<Set<string> | null>(null);
+  const [mine, setMine] = useState<Set<string>>(() => myReservations());
+  const [loadFailed, setLoadFailed] = useState(false);
+  const [busy, setBusy] = useState<string | null>(null);
+  const [message, setMessage] = useState<ItemMessage | null>(null);
+
+  const refresh = useCallback(async () => {
+    try {
+      const ids = await fetchReservedWishes();
+      setReserved(ids);
+      setLoadFailed(false);
+      // Rydd bort «mine» som ikke lenger er reservert (f.eks. fjernet av foreldrene).
+      setMine((current) => new Set([...current].filter((id) => ids.has(id))));
+    } catch {
+      setLoadFailed(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    void refresh();
+  }, [refresh]);
+
+  const toggle = async (item: WishItem) => {
+    if (busy || !reserved) return;
+    const isMine = mine.has(item.id);
+    const takenByOther = reserved.has(item.id) && !isMine;
+    if (takenByOther) return;
+
+    const question = isMine
+      ? `Vil du angre reservasjonen av «${item.title}»?\n\nDa kan andre gjester reservere den igjen.`
+      : `Vil du reservere «${item.title}»?\n\nDa ser de andre gjestene at gaven er tatt. Ingen får vite at det var deg.`;
+    if (!window.confirm(question)) return;
+
+    setBusy(item.id);
+    setMessage(null);
+    try {
+      if (isMine) {
+        await unreserveWish(item.id);
+        setMine((current) => new Set([...current].filter((id) => id !== item.id)));
+        setMessage({ id: item.id, text: 'Reservasjonen er angret.', tone: 'info' });
+      } else {
+        const result = await reserveWish(item.id);
+        if (result === 'reserved') {
+          setMine((current) => new Set(current).add(item.id));
+        } else {
+          setMessage({ id: item.id, text: 'Noen rakk å reservere denne rett før deg.', tone: 'info' });
+        }
+      }
+      await refresh();
+    } catch (error) {
+      setMessage({ id: item.id, text: wishErrorMessage(error), tone: 'error' });
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  return (
+    <>
+      <div className="wishlist__hint">
+        <span className="wishlist__hint-box" aria-hidden="true">
+          <CheckIcon />
+        </span>
+        <p>{tidy(hint)}</p>
+      </div>
+
+      {loadFailed && (
+        <p className="wishlist__load-error" role="status">
+          Reservering er ikke tilgjengelig akkurat nå. Last siden inn på nytt litt senere.
+        </p>
+      )}
+
+      <ul className="wishlist__tags">
+        {items.map((item) => {
+          const isMine = mine.has(item.id);
+          const isReserved = reserved?.has(item.id) ?? false;
+          const takenByOther = isReserved && !isMine;
+          const statusId = `wish-${item.id}-status`;
+          const itemMessage = message?.id === item.id ? message : null;
+          const links = item.links ?? (item.url ? [{ label: 'Se gaven', url: item.url }] : []);
+
+          return (
+            <li key={item.id} className={`gift-tag ${isMine ? 'is-mine' : ''} ${takenByOther ? 'is-taken' : ''}`}>
+              <label className="gift-tag__check">
+                <input
+                  type="checkbox"
+                  checked={isReserved}
+                  disabled={!reserved || takenByOther || busy === item.id}
+                  onChange={() => void toggle(item)}
+                  aria-describedby={statusId}
+                />
+                <span className="gift-tag__box" aria-hidden="true">
+                  {busy === item.id ? <span className="gift-tag__spinner" /> : <CheckIcon />}
+                </span>
+                <span className="gift-tag__check-text" aria-hidden="true">
+                  {isMine ? 'Din' : takenByOther ? 'Tatt' : 'Reserver'}
+                </span>
+                <span className="visually-hidden">
+                  {isMine ? `Angre reservasjon av ${item.title}` : takenByOther ? `${item.title} er reservert` : `Reserver ${item.title}`}
+                </span>
+              </label>
+
+              <div className="gift-tag__body">
+                <span className="gift-tag__title">{item.title}</span>
+                {item.note && <span className="gift-tag__note">{item.note}</span>}
+                {links.length > 0 && (
+                  <span className="gift-tag__links">
+                    {links.map((link) => (
+                      <a key={link.url} className="gift-tag__link" href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.label}
+                        <span className="visually-hidden">: {item.title} (åpnes i en ny fane)</span>
+                        <span aria-hidden="true"> ↗</span>
+                      </a>
+                    ))}
+                  </span>
+                )}
+                <span id={statusId} className={`gift-tag__status ${itemMessage?.tone === 'error' ? 'is-error' : ''}`} aria-live="polite">
+                  {itemMessage
+                    ? itemMessage.text
+                    : isMine
+                      ? 'Du har reservert denne – tusen takk! Trykk på ruten for å angre.'
+                      : takenByOther
+                        ? 'Reservert av en gjest'
+                        : ''}
+                </span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 

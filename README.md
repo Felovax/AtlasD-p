@@ -73,7 +73,21 @@ og aldri på den publiserte siden. Skriv «nettfeil» i navnefeltet for å se hv
 
 Verdier som mangler står som `fyllInn('…')`. Bytt dem ut med vanlig tekst.
 
-**Ønskelisten** (kapittel 5, etter svarskjemaet) kan fylles på to måter, eller begge:
+**Ønskelisten** (kapittel 5, etter svarskjemaet). Hvert ønske har en stor avkrysningsrute: gjester kan
+**reservere** et ønske, og da ser alle andre at det er tatt. Ingen (heller ikke dere) ser *hvem* som har reservert hva,
+og gjesten kan angre fra samme telefon. Krever databasetillegget i
+[`supabase/migrations/20261009090000_wish_reservations.sql`](supabase/migrations/20261009090000_wish_reservations.sql).
+
+Ønskene legges inn slik (hvert ønske må ha en fast `id` – ikke endre den etter at gjestene har begynt å reservere):
+
+```ts
+items: [
+  { id: 'gyngehest', title: 'Gyngehest', note: 'Gyngedyr med navn – giraff', url: 'https://…' },
+  { id: 'kors-smykke', title: 'Kors-smykke', links: [{ label: 'Sølv', url: 'https://…' }, { label: 'Gull', url: 'https://…' }] },
+],
+```
+
+Alternativt (eller i tillegg) kan ønskelisten være en lenke til en ferdig liste:
 
 ```ts
 wishlist: {
@@ -132,6 +146,8 @@ Svarene lagres i [Supabase](https://supabase.com) (PostgreSQL). Gratisplanen hol
 1. Lag et prosjekt på supabase.com. Velg region **EU (Stockholm eller Frankfurt)**.
 2. Gå til **SQL Editor → New query**, lim inn hele
    [`supabase/migrations/20261008120000_rsvp.sql`](supabase/migrations/20261008120000_rsvp.sql), og trykk **Run**.
+   Gjør det samme med [`supabase/migrations/20261009090000_wish_reservations.sql`](supabase/migrations/20261009090000_wish_reservations.sql)
+   (reservasjon av ønsker). Rollen nede til høyre i SQL Editor må stå på **postgres**.
 
 Det lager:
 
@@ -142,6 +158,8 @@ Det lager:
 | `public.is_admin()` | Sjekker om innlogget bruker er administrator |
 | `private.admins` | Hvem som får se svarene |
 | `private.rsvp_attempts` | Teller innsendinger mot spam (kun hashet, slettes etter ett døgn) |
+| `public.wish_reservations` | Hvilke ønsker som er reservert (bare ønske-ID + hash av gjestens hemmelige kode) |
+| `reserved_wishes()`, `reserve_wish()`, `unreserve_wish()` | De eneste måtene gjester kan se/reservere/angre ønsker på |
 
 ### 5.2 Sikkerhet: hva databasen håndhever
 
@@ -287,8 +305,8 @@ så siden blir lettere. Animasjonene bruker bare `transform` og `opacity`, og re
 
 | Kommando | Hva |
 | --- | --- |
-| `npm test` | Validering, datoformat, kalenderfil, Google Maps-lenker, CSV, ønskelisten og hele svarskjemaet (41 tester) |
-| `npm run test:db` | Databasen mot ekte PostgreSQL (PGlite): RLS, validering, spam-grenser, admin-tilgang (16 tester) |
+| `npm test` | Validering, datoformat, kalenderfil, Google Maps-lenker, CSV, ønskelisten med reservering og hele svarskjemaet (47 tester) |
+| `npm run test:db` | Databasen mot ekte PostgreSQL (PGlite): RLS, validering, spam-grenser, admin-tilgang, ønskereservasjoner og oppryddingsskriptet (31 tester) |
 | `npm run typecheck` | TypeScript |
 | `npm run build` | Produksjonsbygg |
 | `npm run check:mobile` | Åpner siden i Edge/Chrome i 7 skjermstørrelser (320 px → PC), sjekker at ingenting kan scrolles sidelengs, at alle bilder laster og at konsollen er uten feil, og lagrer skjermbilder i `test-results/mobile/`. Krever at `npm run dev` kjører. |
